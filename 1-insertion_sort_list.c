@@ -25,9 +25,13 @@ listint_t *swap_func(listint_t **head)
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *tmp = *list;
+	listint_t *tmp = NULL;
 	listint_t *tmp2 = NULL;
 	int flag = 1;
+
+	if (!list)
+		return;
+	tmp = *list;
 
 	while (list && *list && tmp->next)
 	{
