@@ -9,7 +9,8 @@ void selection_sort(int *array, size_t size)
 {
 size_t i, idx, count = 0;
 int aux, flag = 1;
-	do {
+	while (array != NULL && size > 1 && count < size)
+	{
 		flag = 0;
 		aux = array[count];
 		for (i = count + 1; i < size; i++)
@@ -28,5 +29,5 @@ int aux, flag = 1;
 			print_array(array, size);
 		}
 		count++;
-	} while (count < size);
+	}
 }
