@@ -10,10 +10,10 @@
 int partition(int *array, int lo, int hi, int size)
 {
 	int pivot = array[hi];
-	int i = lo;
+	int i = lo, j = lo;
 	int temp = 0;
 
-	for (int j = lo; j < hi; j++)
+	for (; j < hi; j++)
 	{
 		if (array[j] < pivot)
 		{
