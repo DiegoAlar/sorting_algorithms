@@ -29,7 +29,7 @@ void insertion_sort_list(listint_t **list)
 	listint_t *tmp2 = NULL;
 	int flag = 1;
 
-	while (list && tmp && tmp->next)
+	while (list && *list && tmp->next)
 	{
 		flag = 1;
 		if (tmp->n > tmp->next->n)
