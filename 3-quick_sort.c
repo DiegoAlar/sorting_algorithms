@@ -4,9 +4,10 @@
   * @array: array to be sorted
   * @lo: the minumum index in the array
   * @hi: max number index in the list
+  * @size: size of the array
   * Return: the pivot
   */
-int partition(int *array, int lo, int hi)
+int partition(int *array, int lo, int hi, size_t size)
 {
 	int pivot = array[hi];
 	int i = lo;
@@ -20,7 +21,7 @@ int partition(int *array, int lo, int hi)
 			array[j] = array[i];
 			array[i] = temp;
 			if (i != j)
-				print_array(array, 10);
+				print_array(array, size);
 			i++;
 		}
 	}
@@ -28,7 +29,7 @@ int partition(int *array, int lo, int hi)
 	array[i] = array[hi];
 	array[hi] = temp;
 	if (i != hi)
-		print_array(array, 10);
+		print_array(array, size);
 	return (i);
 }
 
@@ -38,16 +39,17 @@ int partition(int *array, int lo, int hi)
   * @array: the array to be sorted
   * @lo: the minimum index of list
   * @hi: the maximum index in the range of the list
+  * @size: size of the array
   */
-void quicksort(int *array, int lo, int hi)
+void quicksort(int *array, int lo, int hi, size_t size)
 {
 	int p;
 
 	if (lo < hi)
 	{
-		p = partition(array, lo, hi);
-		quicksort(array, lo, p - 1);
-		quicksort(array, p + 1, hi);
+		p = partition(array, lo, hi, size);
+		quicksort(array, lo, p - 1, size);
+		quicksort(array, p + 1, hi, size);
 	}
 
 }
@@ -59,6 +61,6 @@ void quicksort(int *array, int lo, int hi)
   */
 void quick_sort(int *array, size_t size)
 {
-	quicksort(array, 0, size);
+	quicksort(array, 0, size, size);
 
 }
