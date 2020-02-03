@@ -4,7 +4,7 @@
  * @head: our doubly linked list
  * Return: The node in the correct place
  */
-listint_t* swap_func(listint_t **head)
+listint_t *swap_func(listint_t **head)
 {
 	listint_t *tmp = (*head)->next;
 
@@ -16,11 +16,11 @@ listint_t* swap_func(listint_t **head)
 	tmp->prev = (*head)->prev;
 	(*head)->prev = tmp;
 	tmp->next = *head;
-	return(tmp);
+	return (tmp);
 }
 /**
- *
- *
+ * insertion_sort_list - sorts a doubly linked list of integers
+ * @list: the list to be sorted
  *
  */
 void insertion_sort_list(listint_t **list)
@@ -28,6 +28,7 @@ void insertion_sort_list(listint_t **list)
 	listint_t *tmp = *list;
 	listint_t *tmp2 = NULL;
 	int flag = 1;
+
 	while (tmp->next)
 	{
 		flag = 1;

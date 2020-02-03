@@ -6,9 +6,9 @@
   */
 void bubble_sort(int *array, size_t size)
 {
-	long unsigned int cont = 0;
+	unsigned long int cont = 0;
 	int temp = 0;
-	long unsigned int k;
+	unsigned long int k;
 	int flag = 1;
 
 	while (flag && size != 0)
