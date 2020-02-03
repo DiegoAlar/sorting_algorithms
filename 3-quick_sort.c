@@ -19,12 +19,16 @@ int partition(int *array, int lo, int hi)
 			temp = array[j];
 			array[j] = array[i];
 			array[i] = temp;
+			if (i != j)
+				print_array(array, 10);
 			i++;
 		}
 	}
 	temp = array[i];
 	array[i] = array[hi];
 	array[hi] = temp;
+	if (i != hi)
+		print_array(array, 10);
 	return (i);
 }
 
