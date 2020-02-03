@@ -21,6 +21,6 @@ void quick_sort(int *array, size_t size);
 void print_array(const int *array, size_t size);
 void print_list(const listint_t *list);
 listint_t *swap_func(listint_t **head);
-void quicksort(int *array, int lo, int hi, size_t size);
-int partition(int *array, int lo, int hi, size_t size);
+void quicksort(int *array, int lo, int hi, int size);
+int partition(int *array, int lo, int hi, int size);
 #endif

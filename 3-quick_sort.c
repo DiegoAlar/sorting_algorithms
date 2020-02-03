@@ -7,7 +7,7 @@
   * @size: size of the array
   * Return: the pivot
   */
-int partition(int *array, int lo, int hi, size_t size)
+int partition(int *array, int lo, int hi, int size)
 {
 	int pivot = array[hi];
 	int i = lo;
@@ -41,7 +41,7 @@ int partition(int *array, int lo, int hi, size_t size)
   * @hi: the maximum index in the range of the list
   * @size: size of the array
   */
-void quicksort(int *array, int lo, int hi, size_t size)
+void quicksort(int *array, int lo, int hi, int size)
 {
 	int p;
 
@@ -63,5 +63,5 @@ void quick_sort(int *array, size_t size)
 {
 	if (array == NULL || size < 2)
 		return;
-	quicksort(array, 0, size - 1, size);
+	quicksort(array, 0, (int)size - 1, (int)size);
 }
