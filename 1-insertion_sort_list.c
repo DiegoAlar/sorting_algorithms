@@ -35,6 +35,8 @@ void insertion_sort_list(listint_t **list)
 		if (tmp->n > tmp->next->n)
 		{
 			tmp = swap_func(&tmp);
+				if (tmp->prev == NULL)
+					*list = tmp;
 			print_list(*list);
 			tmp2 = tmp;
 		}
