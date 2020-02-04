@@ -41,9 +41,7 @@ void selection_sort(int *array, size_t size)
   */
 void shell_sort(int *array, size_t size)
 {
-	int k = 0;
-	int cont = 0;
-	int cont2, tmp;
+	int cont2, cont3, tmp, k = 0, cont = 0, flag = 1;
 
 	if (array == NULL || size < 2)
 		return;
@@ -61,20 +59,23 @@ void shell_sort(int *array, size_t size)
 				tmp = array[cont2];
 				array[cont2] = array[cont2 + k];
 				array[cont2 + k] = tmp;
-
+				cont3 = cont2;
+				flag = 1;
+				while ((cont3 - k) > -1 && flag)
+				{
+					if (array[cont3 - k] > array[cont3])
+					{
+						tmp = array[cont3];
+						array[cont3] = array[cont3 - k];
+						array[cont3 - k] = tmp;
+						print_array(array, size);
+					}
+					else
+						flag = 0;
+					cont3 -= k;
+				}
 			}
 			cont2 += k;
-		}
-		while ((cont2 - k) > -1)
-		{
-			if (array[cont2 - k] > array[cont2])
-			{
-				tmp = array[cont2];
-				array[cont2] = array[cont2 - k];
-				array[cont2 - k] = tmp;
-				print_array(array, size);
-			}
-			cont2 -= k;
 		}
 		cont++;
 	}
