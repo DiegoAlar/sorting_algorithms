@@ -1,38 +1,35 @@
 #include "sort.h"
 
-/**
- * selection_sort - function that sorts an array of integers in ...
- * @array: is my vector
- * @size: is the len of my array
- */
-
-void selection_sort(int *array, size_t size)
+void insertion(int *array, size_t size)
 {
-	size_t i, idx, count = 0;
-	int aux, flag = 1;
+	int cont = 0, cont2 = 0, tmp, flag = 1;
 
-	while (array != NULL && size > 1 && count < size)
+	while ((cont + 1) < (int)size)
 	{
-		flag = 0;
-		aux = array[count];
-		for (i = count + 1; i < size; i++)
+		if (array[cont] > array[cont + 1])
 		{
-			if (array[i] < aux)
+			tmp = array[cont];
+			array[cont] = array[cont + 1];
+			array[cont + 1] = tmp;
+			cont2 = cont;
+			flag = 1;
+			while ((cont2 - 1) > -1 && flag)
 			{
-				aux = array[i];
-				idx = i;
-				flag = 1;
+				if (array[cont2] < array[cont2 - 1])
+				{
+					tmp = array[cont2];
+					array[cont2] = array[cont2 - 1];
+					array[cont2 - 1] = tmp;
+				}
+				else
+					flag = 0;
+				cont2--;
 			}
 		}
-		if (flag == 1)
-		{
-			array[idx] = array[count];
-			array[count] = aux;
-		}
-		count++;
+		cont++;
 	}
+	print_array(array, size);
 }
-
 
 /**
   * shell_sort - sorts an array of integers using knuth sequence
@@ -79,6 +76,5 @@ void shell_sort(int *array, size_t size)
 		}
 		cont++;
 	}
-	selection_sort(array, size);
-	print_array(array, size);
+	insertion(array, size);
 }
