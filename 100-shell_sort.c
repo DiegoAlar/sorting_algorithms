@@ -1,36 +1,5 @@
 #include "sort.h"
 
-void insertion(int *array, size_t size)
-{
-	int cont = 0, cont2 = 0, tmp, flag = 1;
-
-	while ((cont + 1) < (int)size)
-	{
-		if (array[cont] > array[cont + 1])
-		{
-			tmp = array[cont];
-			array[cont] = array[cont + 1];
-			array[cont + 1] = tmp;
-			cont2 = cont;
-			flag = 1;
-			while ((cont2 - 1) > -1 && flag)
-			{
-				if (array[cont2] < array[cont2 - 1])
-				{
-					tmp = array[cont2];
-					array[cont2] = array[cont2 - 1];
-					array[cont2 - 1] = tmp;
-				}
-				else
-					flag = 0;
-				cont2--;
-			}
-		}
-		cont++;
-	}
-	print_array(array, size);
-}
-
 /**
   * shell_sort - sorts an array of integers using knuth sequence
   * @array: the array to be sorted
@@ -38,43 +7,24 @@ void insertion(int *array, size_t size)
   */
 void shell_sort(int *array, size_t size)
 {
-	int cont2, cont3, tmp, k = 0, cont = 0, flag = 1;
+	int j, i, tmp, k = 0;
 
 	if (array == NULL || size < 2)
 		return;
-	while (k * 3 + 1 < (int)size)
+	while (k * 3 + 1 <= (int)size)
 	{
 		k = k * 3 + 1;
 	}
-	while ((cont + k) < (int)size)
+	while (k > 0)
 	{
-		cont2 = cont;
-		while ((cont2 + k) < (int)size)
+		for (i = k; i < (int)size; i++)
 		{
-			if (array[cont2] > array[cont2 + k])
-			{
-				tmp = array[cont2];
-				array[cont2] = array[cont2 + k];
-				array[cont2 + k] = tmp;
-				cont3 = cont2;
-				flag = 1;
-				while ((cont3 - k) > -1 && flag)
-				{
-					if (array[cont3 - k] > array[cont3])
-					{
-						tmp = array[cont3];
-						array[cont3] = array[cont3 - k];
-						array[cont3 - k] = tmp;
-						print_array(array, size);
-					}
-					else
-						flag = 0;
-					cont3 -= k;
-				}
-			}
-			cont2 += k;
+			tmp = array[i];
+			for (j = i; j >= k && array[j - k] > tmp; j -= k)
+				array[j] = array[j - k];
+			array[j] = tmp;
 		}
-		cont++;
+		print_array(array, size);
+		k = (k - 1) / 3;
 	}
-	insertion(array, size);
 }
