@@ -61,6 +61,7 @@ void shell_sort(int *array, size_t size)
 				tmp = array[cont2];
 				array[cont2] = array[cont2 + k];
 				array[cont2 + k] = tmp;
+
 			}
 			cont2 += k;
 		}
@@ -71,12 +72,12 @@ void shell_sort(int *array, size_t size)
 				tmp = array[cont2];
 				array[cont2] = array[cont2 - k];
 				array[cont2 - k] = tmp;
+				print_array(array, size);
 			}
 			cont2 -= k;
 		}
 		cont++;
 	}
-	print_array(array, size);
 	selection_sort(array, size);
 	print_array(array, size);
 }
