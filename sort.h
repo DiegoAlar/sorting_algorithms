@@ -1,4 +1,5 @@
 #ifndef SORT_H
+
 #define SORT_H
 #include <stddef.h>
 /**
@@ -24,4 +25,5 @@ listint_t *swap_func(listint_t **head);
 void quicksort(int *array, int lo, int hi, int size);
 int partition(int *array, int lo, int hi, int size);
 void shell_sort(int *array, size_t size);
+void cocktail_sort_list(listint_t **list);
 #endif
