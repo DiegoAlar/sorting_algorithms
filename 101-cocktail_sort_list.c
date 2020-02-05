@@ -24,7 +24,7 @@ listint_t *tmp = (*head)->next;
 void cocktail_sort_list(listint_t **list)
 {
 listint_t *tmp = NULL;
-int cont2 = 1024, cont, contlist = 0, i, j;
+int cont2 = 1000000, cont, contlist = 0, i, j;
 	if (!list)
 		return;
 	tmp = *list;
