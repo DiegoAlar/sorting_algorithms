@@ -28,7 +28,7 @@ int cont2 = 1000000000, cont, contlist = 0, i, j;
 	if (!list)
 		return;
 	tmp = *list;
-	while (cont2 > 0)
+	while (cont2 > 0 && tmp->next)
 	{
 		cont = 1, i = 1, j = 1;
 		while (tmp->next && i <= (cont2 - 1))
